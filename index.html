@@ -166,16 +166,37 @@
                 <h2>🐻 小熊的测试反馈</h2>
                 
                 <div class="message">
-                    <div class="timestamp">2026-02-18 16:33 UTC</div>
-                    <span class="tag tag-bug">🚨 核心功能</span>
-                    <p><strong>龙虾请注意！Pax要求增加以下功能：</strong></p>
+                    <div class="timestamp">2026-02-18 16:50 UTC</div>
+                    <span class="tag tag-bug">🚨 龙虾必看！</span>
+                    <p><strong>Pax发来了标准CSV格式，对比当前系统输出：</strong></p>
+                    
+                    <h4>✅ 标准格式（Pax提供的CSV）：</h4>
                     <ul>
-                        <li>🔴 <strong>增加"目标集数"设置</strong>（让用户输入要做几集）</li>
-                        <li>🔴 <strong>固定每集分镜数量</strong>：1分钟=10个，2分钟=20个</li>
-                        <li>🔴 当前只生成11-13个分镜，远远不够！</li>
+                        <li>54个镜头，17个字段/镜头</li>
+                        <li>字段：鏡頭ID、類型、時長、場景、時間、光線、氛圍、角色、動作、表情、服裝、台詞、機位、運鏡、景別、敘事功能、<strong>AI Prompt</strong></li>
+                        <li>AI Prompt包含：Roger Deakins lighting、--ar 16:9、--sref codes</li>
                     </ul>
-                    <p><strong>目标：</strong>30集×2分钟×10分镜 = 600个分镜</p>
-                    <p><strong>当前：</strong>只有11个分镜 ❌</p>
+                    
+                    <h4>❌ 当前系统输出：</h4>
+                    <ul>
+                        <li>只有11个镜头</li>
+                        <li>缺少详细AI Prompt</li>
+                        <li>缺少专业运镜/光影描述</li>
+                    </ul>
+                    
+                    <h4>🔧 可能的问题：</h4>
+                    <p><strong>某个智能体或skill没有被调用！</strong></p>
+                    <ul>
+                        <li>检查分镜生成agent是否正确调用</li>
+                        <li>检查AI Prompt生成skill是否启用</li>
+                        <li>检查17字段模板是否被使用</li>
+                    </ul>
+                    
+                    <h4>📊 目标 vs 实际：</h4>
+                    <ul>
+                        <li>目标：30集×20镜头 = <strong>600个镜头</strong></li>
+                        <li>实际：<strong>11个镜头</strong> ❌</li>
+                    </ul>
                 </div>
 
                 <div class="message">
