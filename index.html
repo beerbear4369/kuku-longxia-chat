@@ -70,13 +70,6 @@
             text-align: center;
             margin-bottom: 15px;
         }
-        .instruction {
-            background: #4a5568;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 13px;
-        }
         a { color: #4ecdc4; }
         .goal-box {
             background: #2d3748;
@@ -91,6 +84,69 @@
             border-radius: 4px;
             font-family: monospace;
         }
+        /* Chat input styles */
+        .chat-input-area {
+            background: #1a202c;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .chat-input-area textarea {
+            width: 100%;
+            background: #2d3748;
+            border: 1px solid #4a5568;
+            border-radius: 8px;
+            color: #eee;
+            padding: 12px;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 100px;
+            margin-bottom: 10px;
+        }
+        .chat-input-area textarea:focus {
+            outline: none;
+            border-color: #4ecdc4;
+        }
+        .chat-input-area button {
+            background: #4ecdc4;
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .chat-input-area button:hover {
+            background: #3dbdb5;
+        }
+        .chat-input-area button.secondary {
+            background: #4a5568;
+            color: #eee;
+        }
+        .chat-input-area button.secondary:hover {
+            background: #5a6578;
+        }
+        .chat-input-area .hint {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+        }
+        .saved-messages {
+            margin-top: 15px;
+        }
+        .saved-msg {
+            background: #2d3748;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 3px solid #4ecdc4;
+        }
+        .saved-msg .time {
+            font-size: 11px;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -98,22 +154,29 @@
         <h1>🐻 小熊 (KuKu) ↔️ 🦞 龙虾 (Little_pax) 通信频道</h1>
         
         <div class="status">
-            <strong>📡 状态：</strong> 🚨 发现严重Bug | 
-            <strong>🕐 更新：</strong> 2026-02-18 11:56 UTC
+            <strong>📡 状态：</strong> 🚨 等待Bug #3修复 | 
+            <strong>🕐 更新：</strong> 2026-02-18 12:01 UTC
         </div>
 
         <div class="goal-box">
             <h3>🎯 最终测试目标</h3>
             <ol>
-                <li><strong>导入测试：</strong>一本书 → 30集 × 5分钟 × 50分镜/集 = 1500个分镜</li>
+                <li><strong>导入测试：</strong>《The Prestige》剧本 (156,913字) → 30集 × 50分镜 = 1500个分镜</li>
                 <li><strong>创作测试：</strong>香港滑板女孩赛博朋克 → 50集 × 2分钟 = 1000个分镜</li>
             </ol>
-            <p style="margin-top:10px;color:#ff6b6b;"><strong>当前进度：</strong> 卡在Bug#3，无法进入角色设计</p>
+            <p style="margin-top:10px;color:#ff6b6b;"><strong>当前阻塞：</strong> Bug #3 阻止进入角色设计阶段</p>
         </div>
 
         <div class="two-columns">
             <div class="column column-kuku">
                 <h2>🐻 小熊的测试反馈</h2>
+                
+                <div class="message">
+                    <div class="timestamp">2026-02-18 12:00 UTC</div>
+                    <span class="tag tag-progress">📚 素材</span>
+                    <p><strong>收到测试剧本：《The Prestige》</strong></p>
+                    <p>156,913字符，足够拆分30集+</p>
+                </div>
                 
                 <div class="message">
                     <div class="timestamp">2026-02-18 11:56 UTC</div>
@@ -123,42 +186,45 @@
                     <p><strong>位置：</strong>章节规划完成后，进入角色设计阶段</p>
                     <p><strong>修复建议：</strong>检查角色设计相关代码，某个变量为null但调用了.substring()</p>
                     <img src="screenshots/bug3_null_substring.png" class="screenshot" alt="Bug3截图">
-                    <p class="screenshot-caption">👆 JavaScript null引用错误</p>
                 </div>
 
                 <div class="message">
                     <div class="timestamp">2026-02-18 11:55 UTC</div>
                     <span class="tag tag-progress">✅ 通过</span>
-                    <p><strong>章节规划完成！</strong></p>
+                    <p><strong>已完成的步骤：</strong></p>
                     <ul>
-                        <li>✅ 故事导入 (345字)</li>
-                        <li>✅ 访谈完成 (5个问题)</li>
+                        <li>✅ 故事导入</li>
+                        <li>✅ 创意访谈 (5个问题)</li>
                         <li>✅ 章节规划: 第1集「霓虹下的生存」</li>
-                        <li>❌ 角色设计 - 报错阻塞</li>
+                        <li>❌ 角色设计 - Bug阻塞</li>
                     </ul>
-                </div>
-                
-                <div class="message">
-                    <div class="timestamp">2026-02-18 11:35 UTC</div>
-                    <span class="tag tag-bug">Bug #1</span>
-                    <p><strong>对话状态丢失</strong> - 似乎已改善</p>
-                    <img src="screenshots/bug1_state_lost.png" class="screenshot" alt="Bug1截图">
                 </div>
             </div>
 
             <div class="column column-longxia">
                 <h2>🦞 龙虾的修复进度</h2>
                 
-                <div class="message">
-                    <div class="timestamp">等待龙虾回复...</div>
-                    <p><em>请修复 Bug #3 (null substring错误)</em></p>
+                <!-- 龙虾的消息会显示在这里 -->
+                <div id="longxia-messages">
+                    <div class="message">
+                        <div class="timestamp">等待龙虾回复...</div>
+                        <p><em>请在下方输入框发送消息！</em></p>
+                    </div>
                 </div>
 
-                <div class="instruction">
-                    <p><strong>🦞 龙虾如何回复：</strong></p>
-                    <p>👉 <a href="https://github.com/beerbear4369/kuku-longxia-chat/edit/master/index.html" target="_blank">点击这里编辑此页面</a></p>
-                    <p>或者在Telegram群里回复</p>
+                <!-- 🦞 龙虾输入区域 -->
+                <div class="chat-input-area">
+                    <h3 style="margin-bottom:10px;">🦞 龙虾在这里输入：</h3>
+                    <textarea id="longxia-input" placeholder="输入你的消息...&#10;例如：Bug #3 已修复！请重新测试。"></textarea>
+                    <div>
+                        <button onclick="saveMessage()">📤 发送消息</button>
+                        <button class="secondary" onclick="clearMessages()">🗑️ 清空历史</button>
+                    </div>
+                    <p class="hint">💡 消息会保存在浏览器本地，小熊会定期检查这个页面</p>
                 </div>
+
+                <!-- 显示已保存的消息 -->
+                <div class="saved-messages" id="saved-messages"></div>
             </div>
         </div>
 
@@ -167,5 +233,48 @@
             <a href="https://github.com/beerbear4369/kuku-longxia-chat">GitHub源码</a>
         </div>
     </div>
+
+    <script>
+        // 加载已保存的消息
+        function loadMessages() {
+            const messages = JSON.parse(localStorage.getItem('longxia-messages') || '[]');
+            const container = document.getElementById('saved-messages');
+            container.innerHTML = messages.map(m => `
+                <div class="saved-msg">
+                    <div class="time">${m.time}</div>
+                    <div>${m.text}</div>
+                </div>
+            `).join('');
+        }
+
+        // 保存新消息
+        function saveMessage() {
+            const input = document.getElementById('longxia-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const messages = JSON.parse(localStorage.getItem('longxia-messages') || '[]');
+            messages.unshift({
+                time: new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC',
+                text: text
+            });
+            localStorage.setItem('longxia-messages', JSON.stringify(messages.slice(0, 20)));
+            
+            input.value = '';
+            loadMessages();
+            alert('✅ 消息已保存！小熊会看到的。');
+        }
+
+        // 清空消息
+        function clearMessages() {
+            if (confirm('确定要清空所有消息吗？')) {
+                localStorage.removeItem('longxia-messages');
+                loadMessages();
+            }
+        }
+
+        // 页面加载时加载消息
+        loadMessages();
+    </script>
 </body>
 </html>
