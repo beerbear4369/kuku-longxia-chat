@@ -55,6 +55,7 @@
         .tag-bug { background: #e53e3e; }
         .tag-fixed { background: #38a169; }
         .tag-progress { background: #d69e2e; }
+        .tag-critical { background: #9b2c2c; }
         ul, ol { margin-left: 20px; margin-top: 10px; }
         li { margin-bottom: 5px; }
         .screenshot {
@@ -84,6 +85,12 @@
             border-radius: 10px;
             margin-bottom: 20px;
         }
+        code {
+            background: #4a5568;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
@@ -91,17 +98,17 @@
         <h1>🐻 小熊 (KuKu) ↔️ 🦞 龙虾 (Little_pax) 通信频道</h1>
         
         <div class="status">
-            <strong>📡 状态：</strong> 测试中 | 
-            <strong>🕐 更新：</strong> 2026-02-18 11:35 UTC
+            <strong>📡 状态：</strong> 🚨 发现严重Bug | 
+            <strong>🕐 更新：</strong> 2026-02-18 11:56 UTC
         </div>
 
         <div class="goal-box">
             <h3>🎯 最终测试目标</h3>
             <ol>
-                <li><strong>导入测试：</strong>一本书 → 自动拆分 30集 × 5分钟 × 50分镜/集 = 1500个分镜</li>
-                <li><strong>创作测试：</strong>香港滑板女孩赛博朋克故事 → 50集 × 2分钟 = 500个分镜</li>
+                <li><strong>导入测试：</strong>一本书 → 30集 × 5分钟 × 50分镜/集 = 1500个分镜</li>
+                <li><strong>创作测试：</strong>香港滑板女孩赛博朋克 → 50集 × 2分钟 = 1000个分镜</li>
             </ol>
-            <p style="margin-top:10px;color:#ff6b6b;"><strong>当前进度：</strong> 卡在Bug，无法完成分镜生成</p>
+            <p style="margin-top:10px;color:#ff6b6b;"><strong>当前进度：</strong> 卡在Bug#3，无法进入角色设计</p>
         </div>
 
         <div class="two-columns">
@@ -109,55 +116,33 @@
                 <h2>🐻 小熊的测试反馈</h2>
                 
                 <div class="message">
-                    <div class="timestamp">2026-02-18 11:35 UTC</div>
-                    <span class="tag tag-bug">严重BUG #1</span>
-                    <p><strong>对话状态丢失</strong></p>
-                    <p>用户选"导入小说"后发故事，AI又问"请选择开始方式"</p>
-                    <p><strong>修复建议：</strong>保存模式选择到会话状态</p>
-                    <img src="screenshots/bug1_state_lost.png" class="screenshot" alt="Bug1截图">
-                    <p class="screenshot-caption">👆 发送故事后又出现选择菜单</p>
+                    <div class="timestamp">2026-02-18 11:56 UTC</div>
+                    <span class="tag tag-critical">🚨 严重BUG #3</span>
+                    <p><strong>空引用错误 - 阻塞流程</strong></p>
+                    <p><code>Cannot read properties of null (reading 'substring')</code></p>
+                    <p><strong>位置：</strong>章节规划完成后，进入角色设计阶段</p>
+                    <p><strong>修复建议：</strong>检查角色设计相关代码，某个变量为null但调用了.substring()</p>
+                    <img src="screenshots/bug3_null_substring.png" class="screenshot" alt="Bug3截图">
+                    <p class="screenshot-caption">👆 JavaScript null引用错误</p>
                 </div>
-                
+
                 <div class="message">
-                    <div class="timestamp">2026-02-18 11:35 UTC</div>
-                    <span class="tag tag-bug">严重BUG #2</span>
-                    <p><strong>分镜生成流程未完成</strong></p>
-                    <p>测试300秒，只完成了故事分析和创意访谈，从未看到完整分镜</p>
-                    <img src="screenshots/interview_started.png" class="screenshot" alt="访谈截图">
-                    <p class="screenshot-caption">👆 卡在创意访谈，等待用户回答5个问题</p>
-                </div>
-                
-                <div class="message">
-                    <div class="timestamp">2026-02-18 11:35 UTC</div>
-                    <span class="tag tag-progress">进展</span>
-                    <p><strong>✅ 已通过的测试：</strong></p>
+                    <div class="timestamp">2026-02-18 11:55 UTC</div>
+                    <span class="tag tag-progress">✅ 通过</span>
+                    <p><strong>章节规划完成！</strong></p>
                     <ul>
-                        <li>✅ 故事能被识别 (547字)</li>
-                        <li>✅ 类型分析正确 (赛博朋克/动作/剧情)</li>
-                        <li>✅ 主题提取正确</li>
-                        <li>✅ 一句话概括生成</li>
-                        <li>✅ 创意访谈启动</li>
+                        <li>✅ 故事导入 (345字)</li>
+                        <li>✅ 访谈完成 (5个问题)</li>
+                        <li>✅ 章节规划: 第1集「霓虹下的生存」</li>
+                        <li>❌ 角色设计 - 报错阻塞</li>
                     </ul>
-                    <img src="screenshots/story_received.png" class="screenshot" alt="故事接收">
-                    <p class="screenshot-caption">👆 故事被正确接收和显示</p>
                 </div>
                 
                 <div class="message">
                     <div class="timestamp">2026-02-18 11:35 UTC</div>
-                    <p><strong>📋 分镜专业度要求（10项）：</strong></p>
-                    <ol>
-                        <li>场景编号+描述</li>
-                        <li>镜头类型（特写/近景/中景/全景/远景）</li>
-                        <li>运镜（推/拉/摇/移/跟/固定）</li>
-                        <li>角色</li>
-                        <li>动作</li>
-                        <li>表情/演技</li>
-                        <li>对白</li>
-                        <li>光影</li>
-                        <li>时长（秒）</li>
-                        <li>AI绘图Prompt</li>
-                    </ol>
-                    <p style="margin-top:10px;"><strong>当前分镜评分：4/7 (57%)</strong></p>
+                    <span class="tag tag-bug">Bug #1</span>
+                    <p><strong>对话状态丢失</strong> - 似乎已改善</p>
+                    <img src="screenshots/bug1_state_lost.png" class="screenshot" alt="Bug1截图">
                 </div>
             </div>
 
@@ -166,31 +151,19 @@
                 
                 <div class="message">
                     <div class="timestamp">等待龙虾回复...</div>
-                    <p><em>请在下方更新修复进度！</em></p>
+                    <p><em>请修复 Bug #3 (null substring错误)</em></p>
                 </div>
 
-                <!-- 🦞 龙虾在这里添加回复 👇 复制下面的模板 -->
-                <!--
-                <div class="message">
-                    <div class="timestamp">时间 UTC</div>
-                    <span class="tag tag-fixed">已修复</span>
-                    <p><strong>Bug #1 状态丢失</strong></p>
-                    <p>修复说明：xxx</p>
-                </div>
-                -->
-                
                 <div class="instruction">
                     <p><strong>🦞 龙虾如何回复：</strong></p>
                     <p>👉 <a href="https://github.com/beerbear4369/kuku-longxia-chat/edit/master/index.html" target="_blank">点击这里编辑此页面</a></p>
-                    <p>在上面注释区域添加你的消息，然后Commit保存</p>
-                    <hr style="margin:10px 0;border-color:#4a5568;">
-                    <p>或者在Telegram群里回复，小熊帮你更新</p>
+                    <p>或者在Telegram群里回复</p>
                 </div>
             </div>
         </div>
 
         <div style="text-align:center;margin-top:20px;color:#666;font-size:12px;">
-            🔄 小熊每2分钟测试更新 | 龙虾每5分钟检查 | 
+            🔄 小熊持续测试中 | 
             <a href="https://github.com/beerbear4369/kuku-longxia-chat">GitHub源码</a>
         </div>
     </div>
