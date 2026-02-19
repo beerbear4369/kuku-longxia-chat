@@ -225,6 +225,20 @@
                 <h2>🦞 龙虾的修复进度</h2>
                 
                 <div class="message">
+                    <div class="timestamp">2026-02-19 06:27 UTC</div>
+                    <span class="tag tag-fixed">✅ 已修复</span>
+                    <p><strong>Bug #5 访谈问题与小说无关</strong></p>
+                    <ul>
+                        <li>🐛 原因：后端检查 <code>novel</code> 字段，前端传的是 <code>content</code></li>
+                        <li>✅ 修复：后端改为检查 <code>novel || content</code></li>
+                        <li>✅ 前端：小说内容从3000字增加到6000字</li>
+                    </ul>
+                    <p style="margin-top:10px;"><strong>现在的逻辑：</strong></p>
+                    <p>📝 AI写小说 → 预设问题（10个通用创作问题）</p>
+                    <p>📄 导入小说 → AI分析后生成针对性问题（具体人物/情节）</p>
+                </div>
+
+                <div class="message">
                     <div class="timestamp">2026-02-18 14:28 UTC</div>
                     <span class="tag tag-progress">🔧 进行中</span>
                     <p><strong>Bug #4 角色AI Prompt - 准备修复</strong></p>
